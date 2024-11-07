@@ -1,0 +1,61 @@
+FECHA: 06/NOV/2024                         NOMINA                            PAG: 01                                                EMPREP V1.0                         NOMINAS POR DEPARTAMENTO                                                                        
+
+
+NOMINA          NOMBRE          DPTO          PERCEPCIONES      DEDUCCIONES      SALARIO                                            
+013000    JOSE                  ADM          $  5,000.00        $    300.00        $    4,700.00                                    
+                                                                                                                                    
+EMP DPTO:01  PERCEP DPTO:$  5,000.00  DEDUC DPTO:$    300.00  SUELDO DPTO:$  4,700.00                                               
+
+FECHA: 06/NOV/2024                         NOMINA                            PAG: 02                                                EMPREP V1.0                         NOMINAS POR DEPARTAMENTO                                                                        
+
+
+NOMINA          NOMBRE          DPTO          PERCEPCIONES      DEDUCCIONES      SALARIO                                            
+009000    JESUS                 CON          $  1,000.00        $  4,000.00        $ -  3,000.00                                    
+010000    VICTOR                CON          $  8,000.00        $    300.00        $    7,700.00                                    
+014000    JULIO                 CON          $  1,000.00        $  4,000.00        $ -  3,000.00                                    
+                                                                                                                                    
+EMP DPTO:03  PERCEP DPTO:$ 10,000.00  DEDUC DPTO:$  8,300.00  SUELDO DPTO:$  7,700.00                                               
+
+FECHA: 06/NOV/2024                         NOMINA                            PAG: 03                                                EMPREP V1.0                         NOMINAS POR DEPARTAMENTO                                                                        
+
+
+NOMINA          NOMBRE          DPTO          PERCEPCIONES      DEDUCCIONES      SALARIO                                            
+011000    DIEGO                 MER          $  5,000.00        $    400.00        $    4,600.00                                    
+016000    HUGO                  MER          $  5,000.00        $    400.00        $    4,600.00                                    
+                                                                                                                                    
+EMP DPTO:02  PERCEP DPTO:$ 10,000.00  DEDUC DPTO:$    800.00  SUELDO DPTO:$  9,200.00                                               
+
+FECHA: 06/NOV/2024                         NOMINA                            PAG: 04                                                EMPREP V1.0                         NOMINAS POR DEPARTAMENTO                                                                        
+
+
+NOMINA          NOMBRE          DPTO          PERCEPCIONES      DEDUCCIONES      SALARIO                                            
+012000    ANDRES                RH           $  5,000.00        $    300.00        $    4,700.00                                    
+017000    ARTURO                RH           $  5,000.00        $    300.00        $    4,700.00                                    
+                                                                                                                                    
+EMP DPTO:02  PERCEP DPTO:$ 10,000.00  DEDUC DPTO:$    600.00  SUELDO DPTO:$  9,400.00                                               
+
+FECHA: 06/NOV/2024                         NOMINA                            PAG: 05                                                EMPREP V1.0                         NOMINAS POR DEPARTAMENTO                                                                        
+
+
+NOMINA          NOMBRE          DPTO          PERCEPCIONES      DEDUCCIONES      SALARIO                                            
+001000    CESAR                 TEC          $  3,000.00        $    100.00        $    2,900.00                                    
+002000    PATRICIA              TEC          $  5,000.00        $    300.00        $    4,700.00                                    
+003000    ABNER                 TEC          $  1,000.00        $  4,000.00        $ -  3,000.00                                    
+004000    HAZAEL                TEC          $  8,000.00        $    300.00        $    7,700.00                                    
+FECHA: 06/NOV/2024                         NOMINA                            PAG: 06                                                EMPREP V1.0                         NOMINAS POR DEPARTAMENTO                                                                        
+
+
+NOMINA          NOMBRE          DPTO          PERCEPCIONES      DEDUCCIONES      SALARIO                                            
+005000    EDUARDO               TEC          $  5,000.00        $    400.00        $    4,600.00                                    
+006000    JONATAN               TEC          $  5,000.00        $    300.00        $    4,700.00                                    
+007000    JAZIEL                TEC          $  3,000.00        $    100.00        $    2,900.00                                    
+008000    KARLA                 TEC          $  5,000.00        $    300.00        $    4,700.00                                    
+FECHA: 06/NOV/2024                         NOMINA                            PAG: 07                                                EMPREP V1.0                         NOMINAS POR DEPARTAMENTO                                                                        
+
+
+NOMINA          NOMBRE          DPTO          PERCEPCIONES      DEDUCCIONES      SALARIO                                            
+015000    MONICA                TEC          $  8,000.00        $    300.00        $    7,700.00                                    
+                                                                                                                                    
+EMP DPTO:09  PERCEP DPTO:$ 43,000.00  DEDUC DPTO:$  6,100.00  SUELDO DPTO:$ 39,900.00                                               
+
+EMP TOT:17   PERCEP TOT:$ 78,000.00   DEDUC TOT:$ 16,100.00   SUELDO :    $ 70,900.00                                               
