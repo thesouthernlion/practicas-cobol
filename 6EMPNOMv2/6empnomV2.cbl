@@ -68,7 +68,7 @@
                05  FILLER                      PIC X(14) VALUE "NOMINA".
                05  FILLER                      PIC X(20) VALUE SPACES.
                05  FILLER                      PIC X(05) VALUE "PAG: ".
-               05  T1-PAG                      PIC X(02).
+               05  T1-PAG                      PIC X(03).
            03  TITULO-2.
                05  FILLER                      PIC X(11) VALUE
                    "EMPNOM V1.0".
@@ -80,7 +80,8 @@
                05  FILLER                      PIC X(10) VALUE SPACES.
                05  FILLER                      PIC X(6)  VALUE "NOMBRE".
                05  FILLER                      PIC X(10) VALUE SPACES.
-               05  FILLER                      PIC X(4)  VALUE "DPTO".
+               05  FILLER                      PIC X(12) VALUE
+                   "DEPARTAMENTO".
                05  FILLER                      PIC X(10) VALUE SPACES.
                05  FILLER                      PIC X(8)  VALUE
                    "CONCEPTO".
@@ -98,26 +99,26 @@
                05  FILLER                      PIC X(04) VALUE SPACES.
                05  DETALLE-NOMBRE              PIC X(20).
                05  FILLER                      PIC X(02) VALUE SPACES.
-               05  DETALLE-DPTO                PIC X(04).
+               05  DETALLE-DPTO                PIC X(20).
                05  FILLER                      PIC X(02) VALUE SPACES.
-               05  DETALLE-CLAVE               PIC X(04).
-               05  FILLER                      PIC X(20) VALUE SPACES.
-               05  DETALLE-PERCEPCION          PIC $ZZZ,ZZ9.99.
+               05  DETALLE-CLAVE               PIC X(13).
+               05  FILLER                      PIC X(10) VALUE SPACES.
+               05  DETALLE-PERCEPCION          PIC $$$,$$9.99.
                05  FILLER                      PIC X(08) VALUE SPACES.
-               05  DETALLE-DEDUCCION           PIC $ZZZ,ZZ9.99.
+               05  DETALLE-DEDUCCION           PIC $$$,$$9.99.
                05  FILLER                      PIC X(08) VALUE SPACES.
                05  DETALLE-SUELDO              PIC $$$,$$9.99.
            03  DETALLE-SUBTOTAL-NOMINA.
                05  FILLER                      PIC X(15) VALUE
                    "SUBTOTAL NOMINA".
-               05  FILLER                      PIC X(02) VALUE SPACES.
+               05  FILLER                      PIC X(30) VALUE SPACES.
                05  FILLER                      PIC X(15) VALUE
                    "PERCEPCIONES: ".
-               05  DET-SUBTOT-NOMINA-PERCEP    PIC $ZZZ,ZZ9.99.
+               05  DET-SUBTOT-NOMINA-PERCEP    PIC $$$,$$9.99.
                05  FILLER                      PIC X(02) VALUE SPACES.
                05  FILLER                      PIC X(13) VALUE
                    "DEDUCCIONES: ".
-               05  DET-SUBTOT-NOMINA-DEDUC     PIC $ZZZ,ZZ9.99.
+               05  DET-SUBTOT-NOMINA-DEDUC     PIC $$$,$$9.99.
                05  FILLER                      PIC X(02) VALUE SPACES.
                05  FILLER                      PIC X(08) VALUE
                    "SUELDO: ".
@@ -131,34 +132,46 @@
                05  DET-EMPLEADOS-DPTO          PIC X(04).
                05  FILLER                      PIC X(15) VALUE
                    "PERCEPCIONES: ".
-               05  DET-SUBTOT-DPTO-PERCEP      PIC $ZZZ,ZZ9.99.
+               05  DET-SUBTOT-DPTO-PERCEP      PIC $$$,$$9.99.
                05  FILLER                      PIC X(08) VALUE SPACES.
                05  FILLER                      PIC X(13) VALUE
                    "DEDUCCIONES: ".
-               05  DET-SUBTOT-DPTO-DEDUC       PIC $ZZZ,ZZ9.99.
+               05  DET-SUBTOT-DPTO-DEDUC       PIC $$$,$$9.99.
                05  FILLER                      PIC X(08) VALUE SPACES.
                05  FILLER                      PIC X(08) VALUE
                    "SUELDO: ".
-               05  DET-SUBTOT-DPTO-SUELDO      PIC ZZZ,ZZ9.99-.
+               05  DET-SUBTOT-DPTO-SUELDO      PIC $$$,$$9.99.
            03  DET-TOTAL-EMPRESA.
                05  FILLER                      PIC X(16) VALUE
                    "SUBTOTAL EMPRESA".
-               05  FILLER                      PIC X(08) VALUE SPACES.
+               05  FILLER                      PIC X(05) VALUE SPACES.
                05  FILLER                      PIC X(15) VALUE
                    "EMPLEADOS: ".
                05  DET-EMPLEADOS-EMPRESA       PIC X(04).
                05  FILLER                      PIC X(15) VALUE
                    "PERCEPCIONES: ".
-               05  DET-TOTAL-EMPRESA-PERCEP    PIC $ZZZ,ZZ9.99.
+               05  DET-TOTAL-EMPRESA-PERCEP    PIC $$$,$$9.99.
                05  FILLER                      PIC X(08) VALUE SPACES.
                05  FILLER                      PIC X(13) VALUE
                    "DEDUCCIONES: ".
-               05  DET-TOTAL-EMPRESA-DEDUC     PIC $ZZZ,ZZ9.99.
+               05  DET-TOTAL-EMPRESA-DEDUC     PIC $$$,$$9.99.
                05  FILLER                      PIC X(08) VALUE SPACES.
                05  FILLER                      PIC X(08) VALUE
                    "SUELDO: ".
-               05  DET-TOTAL-EMPRESA-SUELDO    PIC -$ZZZ,ZZ9.99.
+               05  DET-TOTAL-EMPRESA-SUELDO    PIC $$$,$$9.99.
 
+
+       01  NOMINA-CLEANER.
+           03 FILLER                       PIC X(06) VALUE
+               "------".
+       01  NOMBRE-CLEANER.
+           03 FILLER                       PIC X(20) VALUE
+               "--------------------".
+       01  DPTO-CLEANER.
+           03 FILLER                       PIC X(20) VALUE
+               "--------------------".
+
+       77  BANDERA-IMPRIMIR-TITULOS        PIC 9.
        77  BANDERA-UTLIMO-TITULO           PIC 9.
        77  BANDERA-PRIMER-TITULO           PIC 9.
        77  REPORTE-CLEANER                 PIC X(132) VALUE " ".
@@ -190,6 +203,7 @@
        77  TOTAL-SUELDO-EMPRESA            PIC 9(08).
 
 
+
        PROCEDURE DIVISION .
        MAIN-PROCEDURE.
            PERFORM 100-INICIO.
@@ -207,13 +221,12 @@
            MOVE EMPSORT-NOMINA TO NOMINA-ANTERIOR.
            MOVE EMPSORT-DPTO    TO DPTO-ANTERIOR.
            MOVE 1 TO BANDERA-IMPRIME-NOMBRE.
-           MOVE 1 TO BANDERA-PRIMER-TITULO.
-
            ADD 1 TO MAXIMO-LINEAS  GIVING CONT-LINEAS.
-           PERFORM 270-GENERA-DETALLE UNTIL EMPSORT-EOF = 1.
-
-           PERFORM 273-CORTE-NOMINA.
-           PERFORM 274-CORTE-DPTO
+           MOVE 1 TO CONTADOR-PAGINAS.
+           PERFORM 290-PRINTER UNTIL EMPSORT-EOF = 1.
+           PERFORM 294-IMPRIMIR-SUBTOTAL-EMPLEADO.
+           PERFORM 295-IMPRIMIR-SUBTOTAL-DPTO.
+           PERFORM 296-IMPRIMIR-TOTAL-EMPRESA.
            PERFORM 300-FIN.
            STOP RUN.
 
@@ -253,8 +266,8 @@
       *     ELSE
       *         MOVE " "            TO EMPSORT-NOMBRE.
       *         MOVE "ZERO"         TO EMPSORT-DPTO.
-      *1.	Si en el archivo de Percepciones/Deducciones la nómina es cero se debe poner departamento “Zero”
-      *2.	Si no existe la nómina en el archivo maestro se debe poner departamento “Zero”
+      *1.    Si en el archivo de Percepciones/Deducciones la nómina es cero se debe poner departamento “Zero”
+      *2.    Si no existe la nómina en el archivo maestro se debe poner departamento “Zero”
 
 
        260-LLENA-EMPSORT.
@@ -268,116 +281,193 @@
            RELEASE EMPSORT-REG.
            PERFORM 230-LEER-PERCEPCION-DEDUCCION.
 
-       270-GENERA-DETALLE.
-           DISPLAY "DEPARTAMENTO: ",
-               EMPSORT-DPTO, " - " ,
-               "DPTO ANT: ", DPTO-ANTERIOR, " - ",
-               "NOMINA: ", EMPSORT-NOMINA, " - ",
-               "NOMINA ANTERIOR: ", NOMINA-ANTERIOR, " - ",
-               "CONT LINEAS: ", CONT-LINEAS.
-           IF CONT-LINEAS >= MAXIMO-LINEAS
-               PERFORM 276-ESCRIBIR-TITULOS.
-           IF NOMINA-ANTERIOR NOT = EMPSORT-NOMINA
-               PERFORM 273-CORTE-NOMINA.
-      **********************CONDICION NOMBRE NOMINA*********************
-           IF BANDERA-IMPRIME-NOMBRE = 1
-               MOVE EMPSORT-NOMINA TO DETALLE-NOMINA
-               MOVE EMPSORT-NOMBRE TO DETALLE-NOMBRE
-           ELSE
-               MOVE " " TO DETALLE-NOMINA
-               MOVE " " TO DETALLE-NOMBRE.
 
+
+       280-PASAR-CLAVES-IMPORTES.
+           IF EMPSORT-CLAVE = 01
+               MOVE "SUELDO" TO DETALLE-CLAVE.
+           IF EMPSORT-CLAVE = 02
+               MOVE "BONO" TO DETALLE-CLAVE.
+           IF EMPSORT-CLAVE = 03
+               MOVE "PUNTUALIDAD" TO DETALLE-CLAVE.
+           IF EMPSORT-CLAVE = 04
+               MOVE "PRODUCTIVIDAD" TO DETALLE-CLAVE.
+           IF EMPSORT-CLAVE = 05
+               MOVE "VALES" TO DETALLE-CLAVE.
+           IF EMPSORT-CLAVE = 06
+               MOVE "HORAS EXTRAS" TO DETALLE-CLAVE.
+           IF EMPSORT-CLAVE = 11
+               MOVE "IMPUESTOS" TO DETALLE-CLAVE.
+           IF EMPSORT-CLAVE = 12
+               MOVE "IMSS" TO DETALLE-CLAVE.
+           IF EMPSORT-CLAVE = 13
+               MOVE "FALTAS" TO DETALLE-CLAVE.
+           IF EMPSORT-CLAVE = 14
+               MOVE "PAGO PRESTAMO" TO DETALLE-CLAVE.
+           IF EMPSORT-CLAVE = 15
+               MOVE "PRESTAMO" TO DETALLE-CLAVE.
+           IF EMPSORT-CLAVE > 15
+               MOVE "INVALIDO" TO DETALLE-CLAVE.
+           IF EMPSORT-CLAVE < 01
+               MOVE "INVALIDO" TO DETALLE-CLAVE.
+
+       290-PRINTER.
+           IF CONT-LINEAS >= MAXIMO-LINEAS THEN
+      *        corte de pagina
+               PERFORM 292-IMPRIMIR-TITULOS
+               MOVE 1 TO BANDERA-IMPRIME-NOMBRE.
+           IF NOMINA-ANTERIOR NOT = EMPSORT-NOMINA THEN
+      *        corte de nomina
+               PERFORM 294-IMPRIMIR-SUBTOTAL-EMPLEADO
+               MOVE 1 TO BANDERA-IMPRIME-NOMBRE.
+           IF DPTO-ANTERIOR NOT = EMPSORT-DPTO THEN
+      *        corte de departamento
+               PERFORM 295-IMPRIMIR-SUBTOTAL-DPTO
+               MOVE 1 TO BANDERA-IMPRIME-NOMBRE.
+
+           PERFORM 291-IMPRIMIR-EMPLEADO.
+
+
+           MOVE EMPSORT-DPTO   TO DPTO-ANTERIOR.
+           MOVE EMPSORT-NOMINA TO NOMINA-ANTERIOR.
+           MOVE 0 TO BANDERA-IMPRIME-NOMBRE.
+           PERFORM 236-LEER-EMPSORT.
+
+       291-IMPRIMIR-EMPLEADO.
+           PERFORM 293-PASAR-CLAVES-DPTOS.
            PERFORM 280-PASAR-CLAVES-IMPORTES.
-      *     DISPLAY "CLAVE: ",EMPSORT-CLAVE.
 
-      *************************CONDICION IMPORTES **********************
            IF EMPSORT-CLAVE <= 06 THEN
-               DISPLAY "IMPORTE A PERCEPCION"
                ADD EMPSORT-IMPORTE TO SUBTOTAL-PERCEPCION-NOMINA
                MOVE EMPSORT-IMPORTE TO DETALLE-PERCEPCION
                MOVE CLEANER TO DETALLE-DEDUCCION
            ELSE
-               DISPLAY "IMPORTE A DEDUCCION"
                ADD EMPSORT-IMPORTE TO SUBTOTAL-DEDUCCION-NOMINA
                MOVE EMPSORT-IMPORTE TO DETALLE-DEDUCCION
                MOVE CLEANER TO DETALLE-PERCEPCION.
-      ******************************************************************
 
+           IF BANDERA-IMPRIME-NOMBRE = 0 THEN
+               MOVE NOMINA-CLEANER TO DETALLE-NOMINA
+               MOVE NOMBRE-CLEANER TO DETALLE-NOMBRE
+               MOVE DPTO-CLEANER   TO DETALLE-DPTO
+
+           ELSE
+               MOVE EMPSORT-NOMINA TO DETALLE-NOMINA
+               MOVE EMPSORT-NOMBRE TO DETALLE-NOMBRE.
+
+           WRITE REPORTE-REG FROM DETALLE BEFORE 1 LINES.
            ADD 1 TO CONT-LINEAS.
-           ADD 1 TO CONTADOR-REGISTROS-NOMINA.
-
-           WRITE REPORTE-REG FROM DETALLE BEFORE 2 LINE.
-
-           MOVE EMPSORT-NOMINA TO NOMINA-ANTERIOR.
-
-           PERFORM 236-LEER-EMPSORT.
 
 
-
-       273-CORTE-NOMINA.
-           DISPLAY "ENTRA CORTE NOMINA"
-
-           ADD 1 TO CONTADOR-EMPLEADOS-DPTO.
-           ADD 1 TO CONTADOR-EMPLEADOS-EMPRESA.
-
-           ADD SUBTOTAL-PERCEPCION-NOMINA TO SUBTOTAL-PERCEPCION-DPTO.
-           ADD SUBTOTAL-DEDUCCION-NOMINA  TO SUBTOTAL-DEDUCCION-DPTO.
-
-           MOVE SUBTOTAL-PERCEPCION-NOMINA TO DET-SUBTOT-NOMINA-PERCEP.
-           MOVE SUBTOTAL-DEDUCCION-NOMINA  TO DET-SUBTOT-NOMINA-DEDUC.
-
-           COMPUTE SUBTOTAL-SUELDO-NOMINA =
-               SUBTOTAL-PERCEPCION-NOMINA - SUBTOTAL-DEDUCCION-NOMINA.
-           MOVE SUBTOTAL-SUELDO-NOMINA TO DET-SUBTOT-NOMINA-SUELDO.
-
-           WRITE REPORTE-REG FROM DETALLE-SUBTOTAL-NOMINA
-               BEFORE 1 LINES.
-
-
-           IF DPTO-ANTERIOR NOT = EMPSORT-DPTO THEN
-               PERFORM 274-CORTE-DPTO
-
-           MOVE 1 TO BANDERA-IMPRIME-NOMBRE.
-           MOVE 0 TO SUBTOTAL-PERCEPCION-NOMINA.
-           MOVE 0 TO SUBTOTAL-DEDUCCION-NOMINA.
-           MOVE EMPSORT-DPTO TO DPTO-ANTERIOR.
-
-       274-CORTE-DPTO.
-           DISPLAY "CORTE DPTO".
-           ADD SUBTOTAL-PERCEPCION-DPTO    TO TOTAL-PERCEPCION-EMPRESA.
-           ADD SUBTOTAL-DEDUCCION-DPTO     TO TOTAL-DEDUCCION-EMPRESA.
-           ADD SUBTOTAL-SUELDO-DPTO        TO TOTAL-SUELDO-EMPRESA.
-
-           MOVE SUBTOTAL-PERCEPCION-DPTO   TO DET-SUBTOT-DPTO-PERCEP.
-           MOVE SUBTOTAL-DEDUCCION-DPTO    TO DET-SUBTOT-DPTO-DEDUC.
-           MOVE SUBTOTAL-SUELDO-DPTO       TO DET-SUBTOT-DPTO-SUELDO.
-
-           MOVE CONTADOR-EMPLEADOS-DPTO    TO DET-EMPLEADOS-DPTO.
-
-           WRITE REPORTE-REG FROM DET-SUBOTOTAL-DPTO BEFORE 1 LINE.
-
-           ADD 1 TO MAXIMO-LINEAS GIVING CONT-LINEAS.
-           MOVE 0 TO SUBTOTAL-PERCEPCION-DPTO, SUBTOTAL-DEDUCCION-DPTO,
-               SUBTOTAL-SUELDO-DPTO, CONTADOR-EMPLEADOS-DPTO.
-           PERFORM 276-ESCRIBIR-TITULOS.
-
-       276-ESCRIBIR-TITULOS.
-           ADD 1 TO CONTADOR-PAGINAS.
+       292-IMPRIMIR-TITULOS.
+           MOVE CONTADOR-PAGINAS TO T1-PAG.
            WRITE REPORTE-REG FROM TITULO-1 BEFORE PAGE.
            WRITE REPORTE-REG FROM TITULO-2 BEFORE 1 LINES.
            WRITE REPORTE-REG FROM TITULO-3 BEFORE 1 LINES.
-           MOVE 3 TO CONT-LINEAS.
 
-       279-PASAR-NOMBRES-NOMINA-DPTO.
-           IF CONTADOR-REGISTROS-NOMINA = 1
-               MOVE EMPSORT-NOMINA TO DETALLE-NOMINA
-               MOVE EMPSORT-NOMBRE TO DETALLE-NOMBRE
+           MOVE 0 TO CONT-LINEAS.
+           ADD 1 TO CONTADOR-PAGINAS.
+           ADD 3 TO CONT-LINEAS.
+
+       293-PASAR-CLAVES-DPTOS.
+           IF EMPSORT-DPTO = "ADM"
+               MOVE "ADMINISTRACION" TO DETALLE-DPTO
+           ELSE IF EMPSORT-DPTO = "CON"
+               MOVE "CONTABILIDAD" TO DETALLE-DPTO
+           ELSE IF EMPSORT-DPTO = "MER"
+               MOVE "MERCADOTECNIA" TO DETALLE-DPTO
+           ELSE IF EMPSORT-DPTO = "RH"
+               MOVE "RECURSOS HUMANOS" TO DETALLE-DPTO
+           ELSE IF EMPSORT-DPTO = "SIS"
+               MOVE "SISTEMAS" TO DETALLE-DPTO
+           ELSE IF EMPSORT-DPTO = "TEC"
+               MOVE "TECNOLOGIA" TO DETALLE-DPTO
            ELSE
-               MOVE " " TO DETALLE-NOMINA
-               MOVE " " TO DETALLE-NOMBRE.
+               MOVE "ZERO" TO DETALLE-DPTO.
 
-       280-PASAR-CLAVES-IMPORTES.
+       294-IMPRIMIR-SUBTOTAL-EMPLEADO.
+           ADD 1 TO CONTADOR-EMPLEADOS-DPTO.
+           ADD 1 TO CONTADOR-EMPLEADOS-EMPRESA.
 
+           MOVE SUBTOTAL-PERCEPCION-NOMINA TO DET-SUBTOT-NOMINA-PERCEP.
+           MOVE SUBTOTAL-DEDUCCION-NOMINA TO DET-SUBTOT-NOMINA-DEDUC.
+
+           ADD SUBTOTAL-PERCEPCION-NOMINA TO SUBTOTAL-PERCEPCION-DPTO.
+           ADD SUBTOTAL-DEDUCCION-NOMINA TO SUBTOTAL-DEDUCCION-DPTO.
+
+           COMPUTE SUBTOTAL-SUELDO-NOMINA = SUBTOTAL-PERCEPCION-NOMINA
+                   - SUBTOTAL-DEDUCCION-NOMINA.
+
+           MOVE SUBTOTAL-SUELDO-NOMINA TO DET-SUBTOT-NOMINA-SUELDO.
+
+           IF SUBTOTAL-SUELDO-NOMINA > 0 THEN
+               ADD SUBTOTAL-SUELDO-NOMINA TO SUBTOTAL-SUELDO-DPTO
+               ADD SUBTOTAL-SUELDO-NOMINA TO TOTAL-SUELDO-EMPRESA.
+
+           WRITE REPORTE-REG
+               FROM DETALLE-SUBTOTAL-NOMINA BEFORE 1 LINES.
+
+           DISPLAY EMPSORT-NOMINA.
+           PERFORM 297-MODIFICAR-INDEXADO-SUELDO.
+           PERFORM 298-CONSULTA-INDEXADO-SUELDO.
+
+
+           MOVE 0 TO SUBTOTAL-PERCEPCION-NOMINA.
+           MOVE 0 TO SUBTOTAL-DEDUCCION-NOMINA.
+           MOVE 0 TO SUBTOTAL-SUELDO-NOMINA.
+           ADD 1 TO CONT-LINEAS.
+
+       295-IMPRIMIR-SUBTOTAL-DPTO.
+           ADD SUBTOTAL-PERCEPCION-DPTO TO TOTAL-PERCEPCION-EMPRESA.
+           ADD SUBTOTAL-DEDUCCION-DPTO TO TOTAL-DEDUCCION-EMPRESA.
+
+
+           MOVE SUBTOTAL-PERCEPCION-DPTO TO DET-SUBTOT-DPTO-PERCEP.
+           MOVE SUBTOTAL-DEDUCCION-DPTO TO DET-SUBTOT-DPTO-DEDUC.
+           MOVE SUBTOTAL-SUELDO-DPTO TO DET-SUBTOT-DPTO-SUELDO.
+
+           MOVE CONTADOR-EMPLEADOS-DPTO    TO DET-EMPLEADOS-DPTO.
+
+           WRITE REPORTE-REG
+               FROM DET-SUBOTOTAL-DPTO BEFORE 1 LINES.
+           MOVE 0 TO SUBTOTAL-PERCEPCION-DPTO.
+           MOVE 0 TO SUBTOTAL-DEDUCCION-DPTO.
+           MOVE 0 TO SUBTOTAL-SUELDO-DPTO.
+           MOVE 0 TO CONTADOR-EMPLEADOS-DPTO.
+           IF EMPSORT-EOF NOT = 1 THEN
+               PERFORM 292-IMPRIMIR-TITULOS.
+
+       296-IMPRIMIR-TOTAL-EMPRESA.
+           MOVE TOTAL-PERCEPCION-EMPRESA TO DET-TOTAL-EMPRESA-PERCEP.
+           MOVE TOTAL-DEDUCCION-EMPRESA TO DET-TOTAL-EMPRESA-DEDUC.
+           MOVE TOTAL-SUELDO-EMPRESA    TO DET-TOTAL-EMPRESA-SUELDO.
+           MOVE CONTADOR-EMPLEADOS-EMPRESA TO DET-EMPLEADOS-EMPRESA.
+
+           WRITE REPORTE-REG FROM DET-TOTAL-EMPRESA BEFORE 1 LINE.
+
+       297-MODIFICAR-INDEXADO-SUELDO.
+           MOVE NOMINA-ANTERIOR TO EMPINX-NOMINA
+           PERFORM 233-LEER-INDEXADO.
+           IF EXISTE-NOMINA = 1
+               MOVE SUBTOTAL-SUELDO-NOMINA TO EMPINX-SUELDO
+               REWRITE EMPINX-REG
+               DISPLAY "NOMINA ", " ", EMPSORT-NOMINA, " ",
+                       EMPINX-NOMINA, " MODIFICADA"
+           ELSE
+               DISPLAY "NO EXISTE NOMINA - NO MODIFICAR".
+
+       298-CONSULTA-INDEXADO-SUELDO.
+           MOVE NOMINA-ANTERIOR TO EMPINX-NOMINA.
+           PERFORM 233-LEER-INDEXADO.
+           IF EXISTE-NOMINA = 1
+               DISPLAY "NOMINA: ", EMPINX-NOMINA
+               DISPLAY "NOMBRE: ", EMPINX-NOMBRE
+               DISPLAY "DEPARTAMENTO: ", EMPINX-DPTO
+               DISPLAY " SUELDO: ", EMPINX-SUELDO
+           ELSE
+               DISPLAY EMPINX-NOMINA, " "
+                       EMPSORT-NOMINA, " "
+                       , " NO EXISTE NOMINA - NO MOSTRAR".
 
        300-FIN.
            DISPLAY "FIN DEL PROGRAMA"

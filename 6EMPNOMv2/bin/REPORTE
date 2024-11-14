@@ -1,0 +1,27 @@
+FECHA: 00/   /2000                         NOMINA                            PAG: 001                                               EMPNOM V1.0                         NOMINAS POR DEPARTAMENTO                                                                        
+NOMINA          NOMBRE          DEPARTAMENTO          CONCEPTO          PERCEPCIONES      DEDUCCIONES      SALARIO                  
+690252    JULIO                 CONTABILIDAD          SUELDO                  $3,000.00             $0.00             $0.00         
+------    --------------------  --------------------  IMSS                        $0.00           $200.00             $0.00         
+SUBTOTAL NOMINA                              PERCEPCIONES:   $3,000.00  DEDUCCIONES:    $200.00  SUELDO:    $2800.00                
+SUBTOTAL DPTO        EMPLEADOS:     001 PERCEPCIONES:   $3,000.00        DEDUCCIONES:    $200.00        SUELDO:  $2,800.00          
+FECHA: 00/   /2000                         NOMINA                            PAG: 002                                               EMPNOM V1.0                         NOMINAS POR DEPARTAMENTO                                                                        
+NOMINA          NOMBRE          DEPARTAMENTO          CONCEPTO          PERCEPCIONES      DEDUCCIONES      SALARIO                  
+285245    JAVIER                RECURSOS HUMANOS      SUELDO                  $5,000.00             $0.00             $0.00         
+------    --------------------  --------------------  PAGO PRESTAMO               $0.00         $8,000.00             $0.00         
+SUBTOTAL NOMINA                              PERCEPCIONES:   $5,000.00  DEDUCCIONES:  $8,000.00  SUELDO:    $3000.00-               
+498830    CESAR                 RECURSOS HUMANOS      SUELDO                  $4,000.00             $0.00             $0.00         
+------    --------------------  --------------------  BONO                      $100.00             $0.00             $0.00         
+------    --------------------  --------------------  PRODUCTIVIDAD             $100.00             $0.00             $0.00         
+------    --------------------  --------------------  IMPUESTOS                   $0.00           $100.00             $0.00         
+------    --------------------  --------------------  IMSS                        $0.00            $30.00             $0.00         
+SUBTOTAL NOMINA                              PERCEPCIONES:   $4,200.00  DEDUCCIONES:    $130.00  SUELDO:    $4070.00                
+SUBTOTAL DPTO        EMPLEADOS:     002 PERCEPCIONES:   $9,200.00        DEDUCCIONES:  $8,130.00        SUELDO:  $4,070.00          
+FECHA: 00/   /2000                         NOMINA                            PAG: 003                                               EMPNOM V1.0                         NOMINAS POR DEPARTAMENTO                                                                        
+NOMINA          NOMBRE          DEPARTAMENTO          CONCEPTO          PERCEPCIONES      DEDUCCIONES      SALARIO                  
+416904    ABNER                 TECNOLOGIA            SUELDO                  $3,000.00             $0.00             $0.00         
+------    --------------------  --------------------  IMSS                        $0.00           $200.00             $0.00         
+SUBTOTAL NOMINA                              PERCEPCIONES:   $3,000.00  DEDUCCIONES:    $200.00  SUELDO:    $2800.00                
+517851    PATRICIA              TECNOLOGIA            INVALIDO                    $0.00         $5,500.00             $0.00         
+SUBTOTAL NOMINA                              PERCEPCIONES:       $0.00  DEDUCCIONES:  $5,500.00  SUELDO:    $5500.00-               
+SUBTOTAL DPTO        EMPLEADOS:     002 PERCEPCIONES:   $3,000.00        DEDUCCIONES:  $5,700.00        SUELDO:  $2,800.00          
+SUBTOTAL EMPRESA     EMPLEADOS:     005 PERCEPCIONES:  $15,200.00        DEDUCCIONES: $14,030.00        SUELDO:  $9,670.00          
